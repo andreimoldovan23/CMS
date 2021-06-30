@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--
+Template Name: Jovaphile
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+    <title>Jovaphile | Pages | Full Width</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../layout/styles/conf-list.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="../js/conf-list.js"></script>
+    <script src="../js/communication.js"></script>
+    <script>
+        function setAdd() {
+            localStorage.setItem("action", "add");
+        }
+    </script>
+<script>
+        if (document.referrer === "") {
+            window.location.replace("../pages/not-found.html");
+        }
+    </script> </head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+    <div id="nav-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../elements/nav.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+    <div id="title-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#title-placeholder").load("../elements/title.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay light">
+    <div id="banner-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#banner-placeholder").load("../elements/banner.html");
+        });
+    </script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <div class="content">
+            <!-- ################################################################################################ -->
+            <h1>Requested conferences</h1>
+            <div class="scrollable" id="conf-table">
+                <table class="conf-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><a href="conf-page.html">Conf Name</a></td>
+                        <td>Location</td>
+                        <td><input type="date" id="start-date" name="start-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td><input type="date" id="end-date" name="end-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true" ></td>
+                        <td class="descr-hover">Hover here to see
+                            <span class="descr-pop">You can read the description of the event here.</span>
+                        </td>
+                        <td class="button-col"><a class="btn inverse req-conf request-button" href="conf-confirm.html">Register as Author</a>
+                            <a class="btn inverse req-conf request-button" href="#">Register as listener</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="conf-page.html">Conf Name</a></td>
+                        <td>Location</td>
+                        <td><input type="date" id="start-date" name="start-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td><input type="date" id="end-date" name="end-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td class="descr-hover">Hover here to see
+                            <span class="descr-pop">You can read the description of the event here.</span>
+                        </td>
+                        <td class="button-col"><a class="btn inverse req-conf request-button" href="conf-confirm.html">Register as Author</a>
+                            <a class="btn inverse req-conf request-button" href="#">Register as listener</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="conf-page.html">Conf Name</a></td>
+                        <td>Location</td>
+                        <td><input type="date" id="start-date" name="start-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td><input class="conf-date" type="date" id="end-date" name="end-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td class="descr-hover">Hover here to see
+                            <span class="descr-pop">You can read the description of the event here.</span>
+                        </td>
+                        <td class="button-col"><a class="btn inverse req-conf request-button" href="conf-confirm.html">Register as Author</a>
+                            <a class="btn inverse req-conf request-button" href="#">Register as listener</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="conf-page.html">Conf Name</a></td>
+                        <td>Location</td>
+                        <td><input type="date" id="start-date" name="start-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td><input type="date" id="end-date" name="end-date" value="2018-07-22"
+                                   min="2018-01-01" max="2018-12-31" readonly="true"></td>
+                        <td class="descr-hover">Hover here to see
+                            <span class="descr-pop">You can read the description of the event here.</span>
+                        </td>
+                        <td class="button-col"><a class="btn inverse req-conf request-button" href="conf-confirm.html">Register as Author</a>
+                            <a class="btn inverse req-conf request-button" href="#">Register as listener</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+            <a class="btn inverse req-conf add-conf-button" href="conf-confirm.html" onclick="setAdd()">Add a new conference</a>
+
+            <!--<a class="btn inverse req-conf del-conf-button" href="#">Delete a conference</a> -->
+            <!-- ################################################################################################ -->
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+    <div id="footer-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#footer-placeholder").load("../elements/footer.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+    <div id="bottom-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#bottom-placeholder").load("../elements/bottom.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>

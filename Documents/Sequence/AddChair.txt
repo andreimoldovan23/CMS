@@ -1,0 +1,54 @@
+title CMS - Add Chair
+
+actor new Chair
+actor Admin
+
+autonumber 
+autoactivation on
+
+Admin->UI: select conference
+UI->Service: send conference id
+Service->Repository: send conference id
+Repository-->Service: conference info
+Service-->UI: conference info
+UI-->Admin: conference info
+Admin->UI: press add chair button
+UI-->Admin: username form 
+Admin->UI: fill in username
+UI->Service:send username
+Service->Repository: check username
+alt username exists
+Repository-->Service: user info
+Service->Service: add chair authority\n     to user
+space 
+deactivate Service
+Service->new Chair: send notification email
+deactivate new Chair
+Service-->UI: chair added
+UI-->Admin: chair added
+else username does not exist
+activate Repository
+Repository-->Service: username not okay
+activate Service
+Service-->UI: chair not added
+activate UI
+UI-->Admin: chair not added
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

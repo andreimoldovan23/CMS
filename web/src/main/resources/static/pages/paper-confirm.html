@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+Template Name: Jovaphile
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+    <title>Jovaphile | Pages | Basic Grid</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../layout/styles/signup.css" rel="stylesheet" >
+    <link href="../layout/styles/confirm-pop.css" rel="stylesheet" >
+    <link href="../layout/styles/autocomplete.css" rel="stylesheet">
+    <script src="../layout/scripts/autocomplete.js"></script>
+    <style type="text/css">
+        /* DEMO ONLY */
+        .container .demo{text-align:center;}
+        .container .demo div{padding:8px 0;}
+        .container .demo div:nth-child(odd){color:#FFFFFF; background:#CCCCCC;}
+        .container .demo div:nth-child(even){color:#FFFFFF; background:#979797;}
+        @media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
+        /* DEMO ONLY */
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+        if (document.referrer === "") {
+            window.location.replace("../pages/not-found.html");
+        }
+</script>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+    <div id="nav-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../elements/nav.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+    <div id="title-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#title-placeholder").load("../elements/title.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay light">
+    <div id="banner-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#banner-placeholder").load("../elements/banner.html");
+        });
+    </script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+    <form id="paperAddForm">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <div class="content">
+                <!-- ################################################################################################ -->
+                <div class="clear"></div>
+                <h2>Add your paper</h2>
+                <!-- ################################################################################################ -->
+                <div id="comments">
+                    <div class="one_half first">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" value="" size="22" required>
+                    </div>
+
+                    <div class="one_half" id="author1Div">
+                        <label for="author1" style="padding-left: 15px">Authors</label>
+
+                        <div id="author-labels">
+                            <span id="group1">
+                                <div class="two_third autocomplete">
+                                    <input type="text" autocomplete="off" name="author1" id="author1" value="" size="22" onclick="addAutocompletePaperAuthors()">
+                                </div>
+                            </span>
+                        </div>
+
+                        <div class="three_quarter" style="overflow: hidden;">
+                            <button type="button" class="btn" id="add-author-button" name="add-author-button" onclick="addLabel()" style="display: block">+</button>
+                        </div>
+                    </div>
+
+                    <div class="block clear">
+                        <label class="likert-header" >Topics</label>
+                        <textarea name="topics" id="topics" cols="50" rows="7" style="margin: 20px 0px 40px 0px;font-size:20px;"></textarea>
+                    </div>
+
+                    <div class="block clear">
+                        <label class="likert-header" >Keywords</label>
+                        <textarea name="keywords" id="keywords" cols="50" rows="7" style="margin: 20px 0px 40px 0px;font-size:20px;"></textarea>
+                    </div>
+                    <div>
+                        <label class="likert-header" >Full paper or abstract</label>
+                        <input type="file" id="paperFile" name="paperFile"  accept=".pdf">
+
+                    </div>
+                    <div>
+                        <label class="likert-header" >Presentation file</label>
+                        <input type="file" id="presentationFile" name="presentationFile"  accept=".pdf">
+
+                    </div>
+                </div>
+
+                <!-- ################################################################################################ -->
+                <br>
+                <button class="btn" id="trigg-confirm" type="submit">Confirm Paper</button>
+                <br>
+
+                <!-- ################################################################################################ -->
+                <!-- ################################################################################################ -->
+            </div>
+        </main>
+    </form>
+
+    <div id="paper-pop" class="paper-pop">
+        <div class="paper-pop-content">
+            <div class="paper-pop-header">
+                <span class="close" id="close">x</span>
+                <h2>Paper was confirmed</h2>
+            </div>
+            <div class="paper-pop-body">
+                <p>You were sent a confirmation email.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+    <div id="footer-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#footer-placeholder").load("../elements/footer.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+    <div id="bottom-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#bottom-placeholder").load("../elements/bottom.html");
+        });
+    </script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JAVASCRIPTS -->
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../js/papers.js"></script>
+<script src="../js/add-paper.js"></script>
+</body>
+</html>

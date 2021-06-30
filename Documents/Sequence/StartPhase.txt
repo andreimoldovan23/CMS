@@ -1,0 +1,37 @@
+title CMS - Start Phase
+
+actor Chair
+
+autonumber 
+autoactivation on
+
+Chair->UI: select phase
+UI->Service: send phase id
+Service->Repository: check if already\n       active
+alt phase not active
+Repository-->Service: okay to change
+Service->Service: change phase status
+space 
+deactivate Service
+Service-->UI: phase started
+UI-->Chair: phase started
+else 
+autonumber 4
+activate Repository
+Repository-->Service: not okay to change
+activate Service
+Service-->UI: phase not started
+activate UI
+UI-->Chair: phase not started
+end 
+
+
+
+
+
+
+
+
+
+
+

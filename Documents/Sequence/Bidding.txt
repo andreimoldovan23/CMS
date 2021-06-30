@@ -1,0 +1,42 @@
+title CMS - Bidding
+
+actor PCMember
+
+autonumber 
+autoactivation on
+
+PCMember->UI: okay for bidding
+UI->Service: send PCMember username
+Service->Repository: check bidding phase
+alt bidding phase not started
+Repository-->Service: phase not stared
+Service-->UI: bidding failed
+UI-->PCMember: bidding failled
+else bidding phase started
+activate Repository
+Repository-->Service: phase okay
+Service->Service: change bidding status\nfor PCMember
+space
+deactivate Service
+space 
+activate Service
+Service-->UI: bidding success
+activate UI
+UI-->PCMember: bidding success
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

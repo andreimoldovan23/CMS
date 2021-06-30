@@ -1,0 +1,47 @@
+title CMS - Add Conference
+
+actor Admin
+
+autonumber 
+autoactivation on
+
+Admin->UI:    **fill in conference info**\n(name, location, date, etc.)
+UI->Service:send conference info
+Service->Service: create conference
+space 
+deactivate Service
+Service->Service: validate conference
+space 
+deactivate Service
+alt conference is valid
+Service->Repository: add conference
+Repository-->Service: ack
+Service-->UI:conference added
+UI-->Admin:**conference added
+else conference is not valid
+activate Service
+activate UI
+autonumber 5
+Service-->UI:conference not added
+
+UI-->Admin:**conference not added
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

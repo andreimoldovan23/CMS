@@ -1,0 +1,66 @@
+title CMS - Accept/Decline paper
+
+actor Author of Paper
+actor Chair
+
+autonumber 
+autoactivation on
+
+Chair->UI: select paper &\n      status
+UI->Service: send username, \npaper & status
+Service->Repository:check paper
+alt paper in review
+Repository-->Service: paper okay
+Service->Repository: check phase
+alt reviewing phase active
+Repository-->Service: phase okay
+Service->Repository: check if author of \n   paper
+alt is not author
+Repository-->Service: okay for changing \n     status
+Service->Service: set status to paper
+space 
+deactivate Service
+Service->Author of Paper: send notification mail
+deactivate Author of Paper
+Service-->UI: status changed
+UI-->Chair: status changed
+else is author
+autonumber 8
+activate Repository
+Repository-->Service:    not okay for\nchanging status
+activate Service
+Service-->UI: status not changed
+activate UI
+UI-->Chair: status not changed
+end 
+else reviewing phase not active
+autonumber 6
+activate Repository
+Repository-->Service: phase not okay
+activate Service
+Service-->UI: status not changed
+activate UI
+UI-->Chair: status not changed
+end 
+
+else paper not in review
+autonumber 4
+activate Repository
+Repository-->Service: paper not okay
+activate Service
+Service-->UI: status not changed
+activate UI
+UI-->Chair: status not changed
+end 
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+title CMS - Register Author/Listener
+
+actor User
+
+autonumber 
+autoactivation on
+
+User->UI:          register as \n      Author/Listener\nfor selected conference
+UI->Service: send username &\nconference id
+Service->Repository:check register phase
+alt register phase active
+Repository-->Service: phase okay
+Service->Repository: check if not already\nlistener
+alt is not listener
+Repository-->Service:okay for registration
+Service->Service: add listener authority
+space 
+deactivate Service
+Service->User: send notification mail
+deactivate User
+Service-->UI: registration success
+UI-->User: registration success
+
+else is listener
+autonumber 6
+activate Repository
+Repository-->Service: not okay for registration
+activate Service
+Service-->UI: registration failed
+activate UI
+UI-->User: registration failed
+end 
+
+else register phase not active
+autonumber 4
+activate Repository
+Repository-->Service: phase not okay
+activate Service
+Service-->UI:registration failed
+activate UI
+UI-->User: registration failed
+end 
+
+
+
+
+
+
+
+
+
+
+

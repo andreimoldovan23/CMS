@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+Template Name: Jovaphile
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<style type="text/css">
+    /* DEMO ONLY */
+    .container .demo{text-align:center;}
+    .container .demo div{padding:8px 0;}
+    .container .demo div:nth-child(odd){color:#FFFFFF; background:#CCCCCC;}
+    .container .demo div:nth-child(even){color:#FFFFFF; background:#979797;}
+    @media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
+    /* DEMO ONLY */
+</style>
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+    <title>Jovaphile | Pages | Full Width</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../layout/styles/view-paper.css" rel="stylesheet" >
+    <link href="../layout/styles/confirm-pop.css" rel="stylesheet" >
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script>
+        if (document.referrer === "") {
+            window.location.replace("../pages/not-found.html");
+        }
+    </script> </head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+    <div id="nav-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../elements/nav.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+    <div id="title-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#title-placeholder").load("../elements/title.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay light">
+    <div id="banner-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#banner-placeholder").load("../elements/banner.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <div class="content">
+            <!-- ################################################################################################ -->
+            <h1 id="paperName">Paper title</h1>
+
+            <h1>Author(s): <span id="authorList"></span></h1>
+            <h1>Topic(s): <span id="topicList"></span></h1>
+            <h1>Keyword(s): <span id="keywordList"></span></h1>
+
+            <h2>Paper file</h2>
+            <iframe id="paperFile"  width="1000px" height="1000px"></iframe>
+            <h2>Presentation file</h2>
+            <embed id="presentationFile" type="application/pdf" width="1000px" height="1000px">
+
+            <!-- Empty this --->
+            <div class="wrap" id="review-part">
+
+            </div>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+    <div id="footer-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#footer-placeholder").load("../elements/footer.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+    <div id="bottom-placeholder">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#bottom-placeholder").load("../elements/bottom.html");
+        });
+    </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../layout/scripts/uncheck-review-radio.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/papers.js"></script>
+<script src="../js/view-paper.js"></script>
+<script>
+    getPaper();
+</script>
+</body>
+</html>

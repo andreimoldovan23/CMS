@@ -1,0 +1,21 @@
+.conf-subtit{
+    font-size:17px;
+}
+
+.conf-date{
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.conf-date input{
+    margin:15px;
+    font-size:17px;
+}
+
+.details-table{
+    display:none;
+}
+
+.admin-conf-config{
+
+}

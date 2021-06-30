@@ -1,0 +1,36 @@
+.descr-hover {
+    position: relative;
+    display: inline-block;
+    border: none;
+  }
+  
+  .descr-hover .descr-pop {
+    visibility: hidden;
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left:-50%;
+    margin-left: -60px;
+  }
+  
+  .descr-hover:hover .descr-pop {
+    visibility: visible;
+  }
+
+.conf-table{
+  table-layout: auto;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.button-col {
+  width: 215px;
+}

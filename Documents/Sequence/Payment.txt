@@ -1,0 +1,33 @@
+title CMS - Payment
+
+actor User
+
+autonumber 
+autoactivation on
+
+User->UI: get bill
+UI->Server: get payment info
+Server-->UI: payment form
+deactivate UI
+User->UI: credit card info
+UI->Stripe API: send data
+Stripe API->Stripe API: validate data
+space 
+deactivate Stripe API
+alt payment successful
+Stripe API-->UI: payment okay
+UI-->User: payment okay
+
+else payment unsuccessful
+autonumber 7
+Stripe API-->UI: payment failed
+UI-->User: payment failed
+end
+
+
+
+
+
+
+
+

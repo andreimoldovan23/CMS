@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--
+Template Name: Jovaphile
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+  <title>Jovaphile | Pages | Sidebar Right</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  <link href="../layout/styles/conf-page.css" rel="stylesheet" type="text/css" media="all">
+  <link href="../layout/styles/confirm-pop.css" rel="stylesheet" >
+
+  <link rel="stylesheet" href="../dummyPayment/global.css" />
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="../js/phases.js"></script>
+  <script src="../js/sessions.js"></script>
+  <script src="../js/papers.js"></script>
+  <script src="../js/room.js"></script>
+  <script src="../js/conf-page.js"></script>
+  <script src="../js/fill-session.js"></script>
+  <script src="../js/communication.js"></script>
+
+  <script>
+      window.onload =
+              function () {
+                if (localStorage.getItem("PCMEMBER") === "true") {
+                  hasBidded();
+                }
+
+                phaseTable();
+                sessionsTable();
+                roomsTable();
+                getPcMembers();
+                getUserTypeConf("conf-page");
+              };
+  </script>
+<script>
+        if (document.referrer === "") {
+            window.location.replace("../pages/not-found.html");
+        }
+    </script> </head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="nav-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("../elements/nav.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <div id="title-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#title-placeholder").load("../elements/title.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay light">
+  <div id="banner-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#banner-placeholder").load("../elements/banner.html");
+    });
+  </script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content three_quarter first">
+      <!-- ################################################################################################ -->
+      <div class="two_third first">
+        <h1 id="conf-name">CONFERECE NAME</h1>
+        <h1 id="test-remove" class="conf-subtit">Location</h1>
+        <p id="conf-loc">LOCATION</p>
+        <p id="conf-roles"></p>
+        <h1 class="conf-subtit">Date</h1>
+        <div class="conf-date" id="conf-date">
+          <input type="date" id="start-date" name="start-date" value="2018-07-22"
+                 min="2018-01-01" max="2018-12-31" readonly="true">
+          <input type="date" id="end-date" name="end-date" value="2018-07-22"
+                 min="2018-01-01" max="2018-12-31" readonly="true">
+        </div>
+
+        <div class="clear"></div>
+        <p></p>
+
+      </div>
+      <div class="one_third" id="buttons">
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="sidebar one_quarter">
+      <!-- ################################################################################################ -->
+      <div class="sdb_holder">
+          <h6>Look for more details</h6>
+          <p>Click below to see more details about the sessions and rooms of this conference.
+            You can also see the current phase and details about it.</p>
+          <p id="listRight">
+
+          </p>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <div class="three_quarter first" id="replace-table"></div>
+    <!-- / main body -->
+    <div class="clear"></div>
+
+    <div id="pop-up"></div>
+    <div id="bid-pop-up"></div>
+
+    <div id="payment-pop" class="payment-pop">
+      <div class="payment-pop-content">
+        <div class="payment-pop-header">
+          <span class="close">&times;</span>
+          <h2>Pay 150$ conference participation fee</h2>
+        </div>
+        <div class="payment-pop-body">
+          <form id="payment-form">
+            <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+            <button id="submit" class="cardButton">
+              <div class="spinner hidden" id="spinner"></div>
+              <span id="button-text">Pay now</span>
+            </button>
+            <p id="card-error" role="alert"></p>
+            <p class="result-message hidden">
+              Payment succeeded
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2 author-paper">
+  <article class="hoc container cta clear">
+    <!-- ################################################################################################ -->
+
+    <!-- ################################################################################################ -->
+  </article>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <div id="footer-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#footer-placeholder").load("../elements/footer.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="bottom-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#bottom-placeholder").load("../elements/bottom.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="../layout/scripts/confirm-list-pop.js"></script>
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script src="../js/conf-page.js"></script>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="../dummyPayment/checkout.js"></script>
+</body>
+</html>

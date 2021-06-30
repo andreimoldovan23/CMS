@@ -1,0 +1,564 @@
+Append "http://localhost:8080" to all urls
+RequestHeaderToken: {"Authorization" : "Bearer " + token} - for all api calls besides /api/authenticate, /api/user/new
+
+User object: {"id":XXX, "username":XXX, "password":XXX, "name":XXX, "mail":XXX, "job":XXX, "phoneNumber":XXX}
+
+/api/authenticate
+    -who: anyone
+	-for: login
+	-method: post
+	-headers: none
+	-body: user object, only username and password
+	-receive: {idToken: someReallyLongTokenString}
+	-get the token and save it in local storage
+
+/api/user/new
+    -who: anyone
+	-for: signup
+	-method: post
+	-headers: none
+	-body: user object, everything besides id
+	-receive: nothing
+	-just creates a user
+
+/api/user
+    -who: user
+	-for: get the user details
+	-method: get
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: full user object
+
+/api/user/image
+    -who: user
+	-for: get the user image
+	-method: get
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: image bytes, use it as src attribute for user image
+
+/api/user/image
+    -who: user
+	-for: change user image
+	-method: post
+	-headers: RequestHeaderToken
+	-body: image file
+	-receive: none
+
+/api/user/type
+    -who: user
+    -for: check if token expired and get user roles
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: { roles: ['USER', 'ADMIN'] } one or more
+
+/api/conferences/{id}/user/type
+    -who: user
+    -for: check roles of user regarding that conference
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: { roles: ['PCMEMBER', 'CHAIR', 'AUTHOR', 'LISTENER'] } zero or more
+
+========================================
+
+/api/conferences/{id}/registerAsAuthor
+    -who: user
+	-for: register an user as author for a conference
+	-method: post
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: none
+
+/api/conferences/{id}/registerAsListener
+    -who: user
+	-for: register an user as listener for a conference
+	-method: post
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: none
+
+/api/conferences
+    -who: anyone
+	-for: get all conferences
+	-method: get
+	-headers: none
+	-body: none
+	-receive: List<ConferenceDTO>
+	(ConferenceDTO = {"id":xxx, "name":xxx, "dateString":xxx, "city":xxx})
+
+/api/conferences
+    -who: admin
+	-for: add a conference
+	-method: post
+	-headers: RequestHeaderToken
+	-body: ConferenceDTO
+	-receive: ConferenceDTO, the added conference
+	(ConferenceDTO = {"name":xxx, "dateString":xxx, "city":xxx})
+
+/api/conferences/{id}
+    -who: anyone
+	-for: get a conference
+	-method: get
+	-headers: none
+	-body: none
+	-receive: ConferenceDTO
+	(ConferenceDTO = {"id":xxx, "name":xxx, "dateString":xxx, "city":xxx})
+
+/api/conferences/{id}/filter
+    -who: admin
+    -for: get the users except the admin who are not chairs or pcmembers at this conference
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<UserDTO>
+    (UserDTO = {"username":xxx})
+
+/api/conferences/{id}
+    -who: admin
+	-for: edit a conference
+	-method: put
+	-headers: RequestHeaderToken
+	-body: ConferenceDTO
+	-receive: none
+	(ConferenceDTO = {"name":xxx, "dateString":xxx, "city":xxx})
+
+/api/conferences/{id}
+    -who: admin
+	-for: delete a conference
+	-method: delete
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: none
+
+/api/conferences/{id}/rooms
+    -who: admin or chair
+	-for: view rooms for a conference
+	-method: get
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: List<RoomDTO>
+	(RoomDTO = {"id":xxx, "name":xxx, "capacity":xxx, "conf":xxx})
+
+/api/conferences/{id}/rooms
+    -who: admin or chair
+	-for: add a room for a conference
+	-method: post
+	-headers: RequestHeaderToken
+	-body: RoomDTO
+	-receive: none
+	(RoomDTO = {"name":xxx, "capacity":xxx})
+
+/api/conferences/{id}/phases
+    -who: anyone
+	-for: get all phases for a conference
+	-method: get
+	-headers: none
+	-body: none
+	-receive: List<PhaseDTO>
+	(PhaseDTO = {"id":xxx, "conf":xxx, "name":xxx, "deadlineString":xxx, "isActive":xxx})
+
+/api/conferences/{id}/phases
+    -who: admin
+	-for: add a phase for a conference
+	-method: post
+	-headers: RequestHeaderToken
+	-body: PhaseDTO
+	-receive: none
+	(PhaseDTO = {"name":xxx, "deadlineString":xxx, "isActive":xxx})
+
+/api/conferences/{id}/sessions
+    -who: admin, listener, author, pcmember, chair
+	-for: get all sessions for a conference
+	-method: get
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: List<SessionDTO>
+	(SessionDTO = {"id":xxx, "name":xxx, "topic":xxx, "room":xxx, "conf":xxx, "speaker":xxx, "chair":xxx})
+
+/api/conferences/{id}/sessions
+    -who: admin or chair
+	-for: add a session for a conference
+	-method: post
+	-headers: RequestHeaderToken
+	-body: SessionDTO
+	-receive: SessionDTO(only get the id if you need it)
+	(SessionDTO = 
+	{
+		"name":xxx,
+		 "topic":xxx, 
+		 "room":{
+		 	"name":xxx
+		 },
+		 "chair": {
+		 	"user": {
+		 		"username":xxx
+		 	}
+		 }
+	}
+	)
+
+/api/conferences/{id}/sessions/{id}/speakers
+    -who: admin or chair
+    -for: get all
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<UserDTO>
+
+/api/conferences/{id}/sessions/{id}/speakers
+    -who: admin or chair
+    -for: add a speaker to a session
+    -method: post
+    -headers: RequestHeaderToken
+    -body: AuthorDTO
+        ({
+            "user": {
+                "id": 69,
+                "username": "Petrica"
+            }
+        })
+    -receive: none
+
+/api/conferences/{id}/sessions/{id}/speakers?username=Marcel
+    -who: admin or chair
+    -for: delete
+    -method: delete
+    -params: username
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: none
+
+/api/conferences/{id}/rooms/{id}
+    -who: admin or chair
+	-for: get a room for a conference
+	-method: get
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: RoomDTO
+	(RoomDTO = {"id":xxx, "name":xxx, "capacity":xxx, "conf:xxx"})
+
+
+/api/conferences/{id}/rooms/{id}
+    -who: admin or chair
+	-for: update a room for a conference
+	-method: put
+	-headers: RequestHeaderToken
+	-body: RoomDTO
+	-receive: none
+	(RoomDTO = {"name":xxx, "capacity":xxx})
+
+/api/conferences/{id}/rooms/{id}
+    -who: admin or chair
+	-for: delete a room for a conference
+	-method: delete
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: none
+
+/api/conferences/{id}/phases/{id}
+    -who: anyone
+	-for: get a phase for a conference
+	-method: get
+	-headers: none
+	-body: none
+	-receive: PhaseDTO
+	(PhaseDTO = {"id":xxx, "conf":xxx, "name":xxx, "deadlineString":xxx, "isActive":xxx})
+
+/api/conferences/{id}/phases/{id}
+    -who: admin
+	-for: update a phase for a conference
+	-method: put
+	-headers: RequestHeaderToken
+	-body: PhaseDTO
+	-receive: none
+	(PhaseDTO = {"name":xxx, "deadlineString":xxx})
+
+/api/conferences/{id}/phases/{id}
+    -who: admin
+	-for: delete a phase for a conference
+	-method: delete
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: none
+
+/api/conferences/{id}/sessions/{id}
+    -who: admin, listener, author, pcmember, chair
+	-for: get a session for a conference
+	-method: get
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: SessionDTO
+	(SessionDTO = {"id":xxx, "name":xxx, "topic":xxx, "room":xxx, "conf":xxx, "chair":xxx})
+
+/api/conferences/{id}/sessions/{id}
+    -who: admin or chair
+	-for: update a session for a conference
+	-method: put
+	-headers: RequestHeaderToken
+	-body: SessionDTO
+	-receive: none
+	(SessionDTO = {"name":xxx, "topic":xxx})
+
+/api/conferences/{id}/sessions/{id}
+    -who: admin or chair
+	-for: delete a session for a conference
+	-method: delete
+	-headers: RequestHeaderToken
+	-body: none
+	-receive: none
+
+/api/conferences/{cid}/chairs
+    -who: admin
+    -for: add a chair for a conference
+    -method: post
+    -headers: RequestHeaderToken
+    -body: ChairDTO
+    -receive: none
+    (ChairDTO =
+        {
+         "user": {
+            "username":xxx
+         }
+        }
+    )
+
+/api/conferences/{cid}/chairs
+    -who: admin
+    -for: get all chairs at this conference
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<ChairDTO>
+    (ChairDTO =
+            {
+             "user": {
+                "username":xxx
+             }
+            }
+        )
+
+/api/conferences/{cid}/chairs?username=xxx
+    -who: admin
+    -for: delete a chair
+    -method: delete
+    -headers: RequestHeaderToken
+    -body: none
+    -query params: (username: chair username)
+    -receive: none
+
+/api/conferences/{cid}/phases/{id}/start
+    -who: chair
+    -for: start a phase for a conference
+    -method: put
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: none
+
+/api/conferences/{cid}/sessions/{id}/register
+    -who: listener
+    -for: listener registers for a session in a conference
+    -method: put
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: none
+
+/api/conferences/{cid}/papers
+    -who: chair, pcmember, author
+    -for: view all papers from a conference
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<PaperDTO>
+    PaperDTO("id":xxx, "name":xxx, "status":xxx)
+
+/api/conferences/{cid}/papers
+    -who: author
+    -for: add a paper to a conference
+    -method: post
+    -headers: RequestHeaderToken
+    -body: PaperDTO("name":xxx)
+    -receive: none
+
+/api/conferences/{cid}/papers/{pid}
+    -who: chair, pcmember, author
+    -for: view a paper from a conference
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: PaperDTO("id":xxx, "name":xxx, "status":xxx)
+
+/api/conferences/{cid}/papers/{pid}
+    -who: author
+    -for: edit a paper from a conference
+    -method: put
+    -headers: RequestHeaderToken
+    -body: PaperDTO("name":xxx)
+    -receive: none
+
+/api/conferences/{cid}/papers/{pid}
+    -who: author
+    -for: delete a paper from a conference
+    -method: delete
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: none
+
+/api/conferences/{cid}/papers/{pid}/file
+    -who: chair, author, pcmember
+    -for: see the paper's file
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: bytes
+
+/api/conferences/{cid}/papers/{pid}/file
+    -who: author
+    -for: upload a paper
+    -method: post
+    -headers: RequestHeaderToken
+    -body: paperFile(name), actual pdf file(value)
+    -receive: none
+
+/api/conferences/{cid}/papers/{pid}/reviews
+    -who: chair, pcmember, author
+    -for: see all reviews for a paper
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<ReviewDTO>
+    ReviewDTO("id": xxx, "grade":xxx, "reviewer":UserDTO, "paper":PaperDTO, "suggestion":xxx)
+
+/api/conferences/{cid}/papers/{pid}/reviews
+    -who: chair, pcmember
+    -for: review a paper
+    -method: post
+    -headers: RequestHeaderToken
+    -body: ReviewDTO = {"grade":xxx, "suggestion":xxx}
+    -receive: none
+    -grade can be one of the following: strongAccept, accept, weakAccept, borderlinePaper, weakReject, reject, strongReject
+
+/api/conferences/{cid}/papers
+    -who: chair
+    -for: automatically calculate final grade for all papers
+    -method: put
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: none
+
+/api/conferences/{cid}/papers/{pid}/{status}
+    -who: chair
+    -for: accept or decline paper
+    -method: put
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: none
+    -status can be one of the following: accepted, declined
+
+/api/conferences/{cid}/papers/{pid}/reviewers
+    -who: chair
+    -for: assign a paper to a reviewer
+    -method: post
+    -headers: RequestHeaderToken
+    -body: PCMemberDTO("user": {"username":xxx})
+    -receive: none
+
+/api/conferences/{cid}/pcmembers
+    -who: chair
+    -for: see all pcmembers
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<PCMemberDTO>
+    PCMemberDTO("id":xxx, "user": {"username":xxx})
+
+/api/conferences/{cid}/pcmembers
+    -who: chair
+    -for: add a pcmember
+    -method: post
+    -headers: RequestHeaderToken
+    -body: PCMemberDTO("user": {"username":xxx})
+    -receive: none
+
+/api/conferences/{cid}/pcmembers/bidding
+    -who: pcmember
+    -for: bid
+    -method: put
+    -headers: RequestHeaderToken
+    -body: none
+    -query params: "available":true or false
+    -receive: none
+
+/api/conferences/{cid}/sessions/{sid}/file
+    -who: chair, author, pcmember, listener
+    -for: see the presentation file
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: bytes
+
+/api/conferences/{cid}/sessions/{sid}/file
+    -who: author(speaker for that conference)
+    -for: upload a presentationFile
+    -method: post
+    -headers: RequestHeaderToken
+    -body: presentationFile(name), actual pdf file(value)
+    -receive: none
+
+/api/create-payment-intent
+    -who: user
+    -for: create payment intent
+    -method: post
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: {"clientSecret":xxx}
+
+//------------------------------------
+/api/conferences/{cid}/papersOfAuthor
+    -who: author
+    -for: get papers of author
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<PaperDTO>
+
+/api/conferences/{cid}/papersToReview
+    -who: pcmember
+    -for: getting only the papers which a reviewer can review
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<PaperDTO>
+
+/api/conferences/{cid}/papers/{pid}/pcmembersNotAssigned
+    -who: chair
+    -for: getting the pcMembers that were not assigned to review a certain paper
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: List<PCMemberDTO>
+    -"extra comment": Caution! This method will also return the pcMembers that were assigned
+                     to review papers but finished all the reviews.
+
+//----------------------------------------------------------
+PT ascuns butoane bid si attend
+//------------------------------------------------------------
+/api/conferences/{cid}/pcmembers/hasBidded
+    -who: pcmember
+    -for: check if pcmember bidded already
+    -method: get
+    -headers: RequestHeaderToken
+    -body: none
+    -receive: PCMemberDTO
+    -comments: on the frontend: if (data.likeToReview == true) means he bidded already
+
+/api/conferences/{cid}/sessions/{id}/isAttending
+    -who: listener
+    -for: check if listener already attends sessions
+    -method: get
+     -headers: RequestHeaderToken
+     -body: none
+     -receive: Object
+     -comments: on the frontend: if (data.isAttending == true) means he attends already
+

@@ -1,0 +1,30 @@
+title CMS - Upload file
+
+actor Author
+
+autonumber 
+autoactivation on
+
+Author->UI: select file to upload
+UI->UI: check file format
+space 
+deactivate UI
+alt file format pdf
+UI->Service: send file
+Service->Repository: save file
+Repository-->Service: ack
+Service-->UI: file uploaded
+UI-->Author: file uploaded
+
+else incorrect file format
+activate UI
+UI-->Author: file upload failed
+end 
+
+
+
+
+
+
+
+

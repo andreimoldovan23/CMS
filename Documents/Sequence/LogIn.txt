@@ -1,0 +1,58 @@
+title CMS - Log in
+
+actor User
+
+autonumber 
+autoactivation on
+
+User->UI:              **fill in**\nusername & password
+UI->Service: send user info
+Service->Repository: check username
+alt username exists
+Repository-->Service:username okay
+Service->Repository:check password
+alt correct password
+Repository-->Service: password okay
+Service-->Repository:request user info
+activate Repository
+Repository->Service:send user info
+deactivate Repository
+Service-->UI:logIn okay
+UI-->User:**logIn okay**
+autonumber 6
+else incorrect password
+activate Repository
+Repository-->Service: password not okay
+activate Service
+Service-->UI:logIn failed
+activate UI
+UI-->User:**logIn failed**
+end 
+else username does not exist
+autonumber 4
+activate Repository
+Repository-->Service:username not okay
+activate Service
+Service-->UI:logIn failed
+activate UI
+UI-->User:**logIn failed**
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

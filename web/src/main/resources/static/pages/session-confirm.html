@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+Template Name: Jovaphile
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+  <title>Jovaphile | Pages | Basic Grid</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  <link href="../layout/styles/signup.css" rel="stylesheet" >
+  <link href="../layout/styles/confirm-pop.css" rel="stylesheet" >
+  <link href="../layout/styles/autocomplete.css" rel="stylesheet">
+  <style type="text/css">
+    /* DEMO ONLY */
+    .container .demo{text-align:center;}
+    .container .demo div{padding:8px 0;}
+    .container .demo div:nth-child(odd){color:#FFFFFF; background:#CCCCCC;}
+    .container .demo div:nth-child(even){color:#FFFFFF; background:#979797;}
+    @media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
+    /* DEMO ONLY */
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="../layout/scripts/autocomplete.js"></script>
+  <script>
+        if (document.referrer === "") {
+            window.location.replace("../pages/not-found.html");
+        }
+  </script>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="nav-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("../elements/nav.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <div id="title-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#title-placeholder").load("../elements/title.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay light">
+  <div id="banner-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#banner-placeholder").load("../elements/banner.html");
+    });
+  </script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <form action="#" id="sessionAddForm">
+    <main class="hoc container clear">
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content">
+        <!-- ################################################################################################ -->
+        <div class="clear"></div>
+        <h2>Informartion about the session</h2>
+        <!-- ################################################################################################ -->
+        <div id="comments">
+          <div class="one_half first">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="" size="22" required>
+          </div>
+          <div class="one_half">
+            <label for="topic">Topic</label>
+            <input type="text" name="topic" id="topic" value="" size="22" required>
+          </div>
+        </div>
+
+        <div id="comments">
+          <div class="one_half first autocomplete">
+            <label for="chair">Chair</label>
+            <input type="text" autocomplete="off" name="chair" id="chair" value="" size="22" onclick="addSessionChairAutocomplete()" required>
+          </div>
+          <div class="one_half autocomplete">
+            <label for="rname">Room Name</label>
+            <input type="text" autocomplete="off" name="rname" id="rname" value="" size="22" onclick="addSessionRoomAutocomplete()" required>
+          </div>
+        </div>
+
+        <div id="comments">
+
+          <div class="one_half first">
+            <label for="speaker1">Speakers</label>
+          </div>
+          <div id="speaker-labels">
+            <span id="group1">
+            <div class="one_half first autocomplete">
+
+              <input type="text" autocomplete="off" name="speaker1" id="speaker1" value="" size="22" onclick="addSessionSpeakerAutocomplete()" required>
+            </div>
+              <div class="one_quarter last">
+              <!--<button type="button" class="btn" id="remove-speaker1-button1" name="remove-speaker1-button1" onclick="removeLabel(1)">-</button>
+            -->
+            </div>
+            </span>
+          </div>
+          <div class="three_quarter first" style="overflow: hidden;">
+            <button type="button" class="btn" id="add-chair-button" name="add-chair-button" onclick="addLabel()" style="display: block">+</button>
+
+          </div>
+        </div>
+
+        <div id="comments">
+          <div class="block clear">
+
+          </div>
+        </div>
+
+        <!-- ################################################################################################ -->
+        <br>
+        <button class="btn" id="trigg-confirm" type="submit">Confirm Session</button>
+
+        <div id="ses-pop" class="ses-pop">
+          <div class="ses-pop-content">
+            <div class="ses-pop-header">
+              <span class="close">&times;</span>
+              <h2>Session was confirmed</h2>
+            </div>
+            <div class="ses-pop-body">
+              <p>The person responsible was sent a confirmation email.</p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+      </div>
+    </main>
+  </form>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <div id="footer-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#footer-placeholder").load("../elements/footer.html");
+    });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="bottom-placeholder">
+
+  </div>
+
+  <script>
+    $(function(){
+      $("#bottom-placeholder").load("../elements/bottom.html");
+    });
+  </script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JAVASCRIPTS -->
+<script src="../js/add-update-session.js"></script>
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script>
+  //alert(localStorage.getItem("actionSes"));
+
+
+</script>
+</body>
+</html>

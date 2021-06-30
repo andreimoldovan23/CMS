@@ -1,0 +1,165 @@
+Conferences:
+	- TOPO Summit
+		Chairs:
+			James
+			Susan
+		PcMembers:
+			David
+			Amy
+			Thomas
+			Lisa
+		Authors:
+			Michael	- Craft a Plan on a Page
+				Reviewers:
+					David
+					Amy
+					Lisa
+			Ronald	- Find true north
+				Reviewers:
+					David
+					Amy
+					Thomas
+					Lisa
+			Scott	- Plan the Work and Work the Plan
+				Reviewers:
+					Thomas
+					Lisa
+			Laura	- The Ironies of Liberation
+				Reviewers:
+					David
+					Amy
+			Lisa	- Find true north
+				Reviewers:
+					David
+					Amy
+					Thomas
+					Lisa
+		Listeners:
+			Gaston
+			Ashley
+			Ronald
+			Laura
+			David
+		Sessions:
+			- Sales Effectiveness
+				Speakers:
+					Michael
+					Ronald
+					Scott
+			- Marketing Ops and Technology
+				Speakers:
+					Laura
+					Lisa
+	- Internet of Things World
+		Chairs:
+			Michael
+			Elizabeth
+			David
+		PcMembers:
+			Gaston
+			Ashley
+			Ronald
+			Laura
+		Authors:
+			Amy - How to secure privacy in the IoT
+				Reviewers:
+					Gaston
+					Ashley
+					Laura
+			Thomas - IoT Architecture - are traditional architectures good enough?
+				Reviewers:
+					Ronald
+					Laura
+			James - IoT Cloud architecture
+				Reviewers:
+					Gaston
+					Ashley
+					Ronald
+					Laura
+			Susan - Understanding the Internet of Things Protocols
+				Reviewers:
+					Ashley
+					Laura
+		Listeners:
+			James
+			Scott
+			Lisa
+
+		Sessions:
+			- Future of Iot
+				speakers:
+					Amy
+					Thomas
+			- Cloud computing
+				speakers:
+					James
+					Susan
+	- South by Southwest
+
+People:
+	James Martinez
+	Susan Taylor
+	Michael Lee
+	Elizabeth White
+	David Sanchez
+	Amy Walker
+	Thomas Hill
+	Lisa Baker
+	Gaston Tigger
+	Ashley Moore
+	Ronald Martin
+	Laura Clark
+	Scott Young
+
+Jobs:
+	Aerospace Engineer
+	Architect
+	Software Developer
+	Marketing Manager
+	College Professor
+	Computer Systems Analyst
+	Accountant
+	Systems Analyst
+	Radiologic Technologist
+	Physician
+	Psychologist
+	Real Estate Agent
+
+Rooms:
+	1 Europa
+	2 Finch
+	3 Plato
+	4 Alpha
+	5 Dakota
+	6 Steam
+	7 Venus
+	8 Ideas Hall
+
+Papers:
+	1.
+		Plan the Work and Work the Plan
+		Find true north
+		Craft a Plan on a Page
+		The Ironies of Liberation
+	2.
+		IoT Architecture - are traditional architectures good enough?
+		IoT Cloud architecture
+		Understanding the Internet of Things Protocols
+		How to secure privacy in the IoT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+Template Name: Jovaphile
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Jovaphile | Pages | Basic Grid</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="../layout/styles/signup.css" rel="stylesheet" >
+<link href="../layout/styles/confirm-pop.css" rel="stylesheet" >
+  <link href="../layout/styles/autocomplete.css" rel="stylesheet">
+<style type="text/css">
+/* DEMO ONLY */
+.container .demo{text-align:center;}
+.container .demo div{padding:8px 0;}
+.container .demo div:nth-child(odd){color:#FFFFFF; background:#CCCCCC;}
+.container .demo div:nth-child(even){color:#FFFFFF; background:#979797;}
+@media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
+/* DEMO ONLY */
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="../layout/scripts/autocomplete.js"></script>
+
+<script>
+        if (document.referrer === "") {
+            window.location.replace("../pages/not-found.html");
+        }
+    </script> </head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="nav-placeholder">
+
+  </div>
+  
+  <script>
+  $(function(){
+    $("#nav-placeholder").load("../elements/nav.html");
+  });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <div id="title-placeholder">
+
+  </div>
+  
+  <script>
+  $(function(){
+    $("#title-placeholder").load("../elements/title.html");
+  });
+</script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay light">
+  <div id="banner-placeholder">
+
+  </div>
+  
+  <script>
+  $(function(){
+    $("#banner-placeholder").load("../elements/banner.html");
+  });
+</script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <form action="#" method="post" id="confAddForm">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content"> 
+      <!-- ################################################################################################ -->
+      <div class="clear"></div>
+      <h2>Informartion about the conference</h2>
+      <!-- ################################################################################################ -->
+      <div id="comments">
+        <div class="one_half first">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" size="22" required>
+
+        </div>
+        <div class="one_half">
+          <label for="personResponsible1" style="padding-left: 15px">Chairs</label>
+
+          <div id="chair-labels">
+              <span id="group1">
+              <div class="two_third autocomplete">
+                <input type="text" autocomplete="off" name="personResponsible1" id="personResponsible1" value="" size="22" onclick="addChairAutocomplete()" required>
+              </div>
+              <div class="one_quarter last" id="deleteInCaseOfUpdate"></div>
+              </span>
+          </div>
+          <div class="three_quarter" style="overflow: hidden;">
+          <button type="button" class="btn" id="add-chair-button" name="add-chair-button" onclick="addLabel()" style="display: block">+</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="comments">
+        <div class="one_third first">
+            <label for="start-date">Start Date</label>
+          <input type="date" placeholder="dd-mm-yyyy" id="start-date" name="start-date" required>
+        </div>
+        <div class="one_third">
+            <label for="end-date">End Date</label>
+          <input type="date" id="end-date" name="end-date" required>
+        </div>
+        <div class="one_third">
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" value="" size="22" required>
+        </div>
+      </div>
+
+      <div id="comments">
+        <div class="block clear">
+          <div class="clear"></div>
+            <h2 for="phases" class="center">Phases</h2>
+          <div class="clear"></div>
+            <span id="phases">
+              <div class="one_half first">
+                <label for="registration">Registration</label>
+                <input type="date" id="registration" name="registration" required>
+              </div>
+              <div class="one_half">
+                <label for="submitting">Submitting</label>
+                <input type="date" id="submitting" name="submitting" required>
+
+              </div>
+              <div class="one_third first">
+                <label for="bidding">Bidding</label>
+                <input type="date" id="bidding" name="bidding" required>
+              </div>
+              <div class="one_third">
+                <label for="reviewing">Reviewing</label>
+                <input type="date" id="reviewing" name="reviewing" required>
+              </div>
+              <div class="one_third">
+                <label for="session_registration">Session Registration</label>
+                <input type="date" id="session_registration" name="session_registration" required>
+              </div>
+
+
+
+
+
+            </span>
+
+          </div>
+      </div>
+
+      <!-- ################################################################################################ -->
+      <br>
+      <button class="btn" id="trigg-confirm" type="submit">Confirm Conference</button>
+
+      <div id="conf-pop" class="conf-pop">
+        <div class="conf-pop-content">
+            <div class="conf-pop-header">
+                <span class="close">&times;</span>
+                <h2>Conference was confirmed</h2>
+              </div>
+              <div class="conf-pop-body">
+                <p>The conference has been confirmed.</p>
+              </div>
+              
+        </div>
+      </div>
+      
+
+    
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+    </div>
+  </main>
+</form>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <div id="footer-placeholder">
+
+  </div>
+  
+  <script>
+  $(function(){
+    $("#footer-placeholder").load("../elements/footer.html");
+  });
+  </script>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+<div id="bottom-placeholder">
+
+</div>
+
+<script>
+$(function(){
+  $("#bottom-placeholder").load("../elements/bottom.html");
+});
+</script>
+</div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JAVASCRIPTS -->
+<!--<script src="../layout/scripts/confirm-conf-pop.js"></script>-->
+<script src="../js/add-update-conference.js"></script>
+<script src="../layout/scripts/jquery.min.js"></script>
+<script src="../layout/scripts/jquery.backtotop.js"></script>
+<script src="../layout/scripts/jquery.mobilemenu.js"></script>
+<script>
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

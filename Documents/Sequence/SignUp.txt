@@ -1,0 +1,32 @@
+title CMS - Sign Up
+
+actor User
+
+autonumber 
+autoactivation on
+User->UI: **fill in info**\n(username, password, name, etc.)
+UI->Service:send user info
+
+Service->Repository:check username
+
+alt username does not exist
+Service<--Repository:username okay
+Service->Service:create account
+space 
+deactivateafter Service
+Service->Repository: save account
+Service<--Repository:ack
+Service->User:**send signUp notification email**
+deactivate User
+Service-->UI:signUp okay
+activate UI
+UI-->User: signUp okay
+
+else username already exists
+autonumber 4
+Repository-->Service:username not okay
+Service-->UI:signUp failed
+UI-->User:**signUp failed**
+end
+autoactivation off
+
